@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telegram Scraper</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input, button { padding: 8px; font-size: 14px; }
+        .btn { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Telegram Channel Scraper</h2>
+    <form method="POST">
+        <input type="text" name="channel_url" placeholder="Enter Telegram Channel URL" required size="40">
+        <button type="submit" class="btn">Search</button>
+    </form>
+
+    {% if file_exists %}
+        <br><br>
+        <a href="{{ url_for('download', file_name=file_name) }}">
+            <button type="button" class="btn">Download CSV</button>
+        </a>
+        <br><br>
+        <!-- Back to Home button -->
+        <a href="{{ url_for('index') }}">
+            <button type="button" class="btn">Back to Home</button>
+        </a>
+    {% endif %}
+</body>
+</html>
